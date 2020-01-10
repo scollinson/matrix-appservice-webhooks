@@ -10,8 +10,15 @@ module.exports = (webhook, matrix) => {
     let combinedHtml = "";
     for (let attachment of webhook.attachments) {
         let color = "#f7f7f7";
-        if (attachment.color) color = attachment.color;
-        if (COLOR_MAP[attachment.color]) color = COLOR_MAP[attachment.color];
+        if (attachment.color)
+        {
+            color = attachment.color;
+
+            if (COLOR_MAP[color])
+            {
+                color = COLOR_MAP[color];
+            }
+        }
 
         // Pretext
         if (attachment.pretext) {
